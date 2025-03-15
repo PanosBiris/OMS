@@ -1,0 +1,6 @@
+@PB.OMS.CustomerService.Api_HostAddress = http://localhost:5168
+
+GET {{PB.OMS.CustomerService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

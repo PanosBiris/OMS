@@ -1,0 +1,73 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentOrder.Id">
+    <h4>Order</h4>
+    <div>
+      <label><strong>Title:</strong></label> {{ currentOrder.code }}
+    </div>
+    <div>
+      <label><strong>Type:</strong></label>
+      {{ currentOrder.type }}
+    </div>
+    <div>
+      <label><strong>Status:</strong></label>
+      {{ currentOrder.status }}
+    </div>
+
+    <a class="badge badge-warning"
+      routerLink="/tutorials/{{ currentOrder.Id }}">
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentOrder">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentOrder.Id" class="edit-form">
+    <h4>Tutorial</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentOrder.code"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentOrder.notes"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentOrder.status }}
+      </div>
+    </form>
+
+   <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateOrder()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentOrder.Id">
+    <br />
+    <p>Cannot access this Order...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,16 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Orders List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let order of orders; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveOrder(order, i)"
+      >
+        {{ order.code }}
+      </li>
+    </ul>
+
+  </div>
+</div>

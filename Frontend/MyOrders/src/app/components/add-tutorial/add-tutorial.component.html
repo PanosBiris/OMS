@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="code"
+          required
+          [(ngModel)]="order.code"
+          name="code"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <input
+          class="form-control"
+          id="notes"
+          required
+          [(ngModel)]="order.notes"
+          name="notes"
+        />
+      </div>
+
+      <button (click)="saveOrder()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Order was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newOrder()">Add</button>
+    </div>
+  </div>
+</div>
