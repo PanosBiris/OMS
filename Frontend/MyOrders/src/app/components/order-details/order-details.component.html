@@ -14,39 +14,39 @@
     </div>
 
     <a class="badge badge-warning"
-      routerLink="/tutorials/{{ currentOrder.Id }}">
+      routerLink="/orders/{{ currentOrder.Id }}">
       Edit
     </a>
   </div>
 
   <div *ngIf="!currentOrder">
     <br />
-    <p>Please click on a Tutorial...</p>
+    <p>Please click on an Order...</p>
   </div>
 </div>
 
 <ng-template #editable>
   <div *ngIf="currentOrder.Id" class="edit-form">
-    <h4>Tutorial</h4>
+    <h4>Order</h4>
     <form>
       <div class="form-group">
-        <label for="title">Code</label>
+        <label for="code">Code</label>
         <input
           type="text"
           class="form-control"
-          id="title"
+          id="code"
           [(ngModel)]="currentOrder.code"
           name="title"
         />
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description">Notes</label>
         <input
           type="text"
           class="form-control"
-          id="description"
+          id="notes"
           [(ngModel)]="currentOrder.notes"
-          name="description"
+          name="notes"
         />
       </div>
 

@@ -3,11 +3,11 @@ import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
-  selector: 'app-tutorials-list',
-  templateUrl: './tutorials-list.component.html',
-  styleUrls: ['./tutorials-list.component.css'],
+  selector: 'app-orders-list',
+  templateUrl: './orders-list.component.html',
+  styleUrls: ['./orders-list.component.css'],
 })
-export class TutorialsListComponent implements OnInit {
+export class OrdersListComponent implements OnInit {
   orders?: Order[];
   currentOrder: Order = { Id: null, type: 1, status: 1 };
   currentIndex = -1;

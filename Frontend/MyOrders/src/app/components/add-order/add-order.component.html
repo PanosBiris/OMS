@@ -2,7 +2,7 @@
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="title">Code</label>
+        <label for="code">Code</label>
         <input
           type="text"
           class="form-control"
@@ -23,6 +23,29 @@
           name="notes"
         />
       </div>
+
+    <div>
+      Item: 
+      <select name="menuItemId" [(ngModel)]="menuItemId">
+        <option *ngFor="let item of menuItems | async" [ngValue]="item.id">{{item.name}}</option>
+      </select>
+      #:<input type="text" [(ngModel)]="quantity"><br>
+      Special Inst: <input type="text" [(ngModel)]="specialInstructions"><br>
+
+      <button (click)="addHandler()"> Add </button>
+    </div>
+
+      <table>
+        <th> name </th>
+        <th> quantity </th>
+        <th> special instructions </th>
+    
+        <tr *ngFor="let item of order.items">
+            <td>{{item.menuItemId}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.specialInstructions}}</td>
+        </tr>
+      </table>
 
       <button (click)="saveOrder()" class="btn btn-success">Submit</button>
     </div>

@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/models/order.model';
 
 @Component({
-  selector: 'app-tutorial-details',
-  templateUrl: './tutorial-details.component.html',
-  styleUrls: ['./tutorial-details.component.css'],
+  selector: 'app-order-details',
+  templateUrl: './order-details.component.html',
+  styleUrls: ['./order-details.component.css'],
 })
-export class TutorialDetailsComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit {
   @Input() viewMode = false;
 
   @Input() currentOrder: Order = {
@@ -43,25 +43,6 @@ export class TutorialDetailsComponent implements OnInit {
     });
   }
 
-  updatePublished(status: boolean): void {
-    const data = {
-      code: this.currentOrder.code,
-      notes: this.currentOrder.notes
-    };
-
-    this.message = '';
-
-    this.orderService.update(this.currentOrder.Id, data).subscribe({
-      next: (res) => {
-        console.log(res);        
-        this.message = res.message
-          ? res.message
-          : 'The status was updated successfully!';
-      },
-      error: (e) => console.error(e)
-    });
-  }
-
   updateOrder(): void {
     this.message = '';
 
@@ -72,7 +53,7 @@ export class TutorialDetailsComponent implements OnInit {
           console.log(res);
           this.message = res.message
             ? res.message
-            : 'This tutorial was updated successfully!';
+            : 'This order was updated successfully!';
         },
         error: (e) => console.error(e)
       });
@@ -82,7 +63,7 @@ export class TutorialDetailsComponent implements OnInit {
     this.orderService.delete(this.currentOrder.Id).subscribe({
       next: (res) => {
         console.log(res);
-        this.router.navigate(['/tutorials']);
+        this.router.navigate(['/orders']);
       },
       error: (e) => console.error(e)
     });
