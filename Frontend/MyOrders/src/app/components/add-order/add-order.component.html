@@ -10,7 +10,16 @@
           required
           [(ngModel)]="order.code"
           name="code"
+          readonly
         />
+      </div>
+
+      <div class="form-group">
+        <select name="type" [(ngModel)]="order.type">
+          <option value="1">Pickup</option>
+          <option value="2">Delivery</option>
+        </select>
+
       </div>
 
       <div class="form-group">
@@ -23,31 +32,41 @@
           name="notes"
         />
       </div>
-
-    <div>
-      Item: 
-      <select name="menuItemId" [(ngModel)]="menuItemId">
-        <option *ngFor="let item of menuItems | async" [ngValue]="item.id">{{item.name}}</option>
-      </select>
-      #:<input type="text" [(ngModel)]="quantity"><br>
-      Special Inst: <input type="text" [(ngModel)]="specialInstructions"><br>
-
-      <button (click)="addHandler()"> Add </button>
-    </div>
-
-      <table>
-        <th> name </th>
-        <th> quantity </th>
-        <th> special instructions </th>
-    
-        <tr *ngFor="let item of order.items">
-            <td>{{item.menuItemId}}</td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.specialInstructions}}</td>
-        </tr>
-      </table>
-
-      <button (click)="saveOrder()" class="btn btn-success">Submit</button>
+    <table>
+      <tr>
+        <td>
+          <p>
+            Item: 
+            <select name="menuItemId" [(ngModel)]="menuItemId">
+              <option *ngFor="let item of menuItems | async" [ngValue]="item.id">{{item.name}}</option>
+            </select><br/>
+            #:<input type="number" [(ngModel)]="quantity" width="10"><br>
+            Special instructions: <input type="text" [(ngModel)]="specialInstructions"><br>
+      
+            <button (click)="addHandler()"> Add </button>
+          </p>
+        </td>
+        <td>
+          <table>
+            <th> name </th>
+            <th> quantity </th>
+            <th> special instructions </th>
+        
+            <tr *ngFor="let item of order.items">
+                <td>{{item.menuItemId}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.specialInstructions}}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)="saveOrder()" class="btn btn-success">Submit</button>
+        </td>
+      </tr>
+    </table>
+      
     </div>
 
     <div *ngIf="submitted">

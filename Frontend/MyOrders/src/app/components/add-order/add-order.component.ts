@@ -30,6 +30,7 @@ export class AddOrderComponent {
 
   ngOnInit(): void {
     this.retrieveMenuItems();
+    this.generateCode();
   }
 
   saveOrder(): void {
@@ -79,5 +80,9 @@ export class AddOrderComponent {
       },
       error: (e) => console.error(e)
     });
+  }
+
+  generateCode(): void {
+    this.order.code = Math.random().toString(36).substring(5).toUpperCase();
   }
 }

@@ -3,6 +3,8 @@ using MediatR;
 using PB.OMS.OrderingService.Api.Models;
 using PB.OMS.OrderingService.Application.Commands;
 using PB.OMS.OrderingService.Domain.Entities.OrderAggregate;
+using Microsoft.AspNetCore.Components.Forms;
+using PB.OMS.OrderingService.Application.Queries;
 
 namespace PB.OMS.OrderingService.Api.Controllers
 {
@@ -39,6 +41,14 @@ namespace PB.OMS.OrderingService.Api.Controllers
 
             var response = await _mediator.Send(orderCommand, cancellationToken);
             return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<List<Order>> GetOrdersByCustomerIdAsync(Guid customerId)
+        {
+            var orders = await _mediator.Send(new GetOrdersByCustomerIdQuery() { CustomerId = customerId });
+
+            return orders;
         }
     }
 }

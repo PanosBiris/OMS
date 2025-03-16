@@ -11,7 +11,9 @@ namespace PB.OMS.OrderingService.Application.Repository
     {
         Task<ICollection<Order>> GetAll();
 
-        Task<Order> GetOrderById(int personId);
+        Task<Order> GetOrderById(Guid orderId);
+
+        Task<List<Order>> GetOrdersByCustomerId(Guid customerId);
 
         Task<Order> AddOrder(Order toCreate);
 

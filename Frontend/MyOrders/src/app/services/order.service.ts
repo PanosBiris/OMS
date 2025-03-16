@@ -11,8 +11,8 @@ const baseUrl = '/api/Order';
 export class OrderService {
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Order[]> {
-    return this.http.get<Order[]>(baseUrl);
+  getOrdersByCustomerId(customerId: any): Observable<Order[]> {
+    return this.http.get<Order[]>(`${baseUrl}/GetOrdersByCustomerId/?customerId=${customerId}`);
   }
 
   get(id: any): Observable<Order> {

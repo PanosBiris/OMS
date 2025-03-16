@@ -22,9 +22,14 @@ namespace PB.OMS.OrderingService.Infrastructure.Repositories
             return await _context.Orders.ToListAsync();
         }
 
-        Task<Order> IOrderRepository.GetOrderById(int personId)
+        Task<Order> IOrderRepository.GetOrderById(Guid orderId)
         {
             throw new NotImplementedException();
+        }
+
+        async Task<List<Order>> IOrderRepository.GetOrdersByCustomerId(Guid customerId)
+        {
+            return await _context.Orders.Where(o => o.CustomerId == customerId).ToListAsync();
         }
 
         public async Task<Order> AddOrder(Order newOrder)

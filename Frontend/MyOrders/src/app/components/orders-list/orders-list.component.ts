@@ -20,7 +20,7 @@ export class OrdersListComponent implements OnInit {
   }
 
   retrieveOrders(): void {
-    this.orderService.getAll().subscribe({
+    this.orderService.getOrdersByCustomerId('00000000-0000-0000-0000-000000000000').subscribe({
       next: (data) => {
         this.orders = data;
         console.log(data);
