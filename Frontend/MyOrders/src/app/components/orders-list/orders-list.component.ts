@@ -9,7 +9,7 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrdersListComponent implements OnInit {
   orders?: Order[];
-  currentOrder: Order = { Id: null, type: 1, status: 1 };
+  currentOrder: Order = { id: null, type: 1, status: 1 };
   currentIndex = -1;
   title = '';
 

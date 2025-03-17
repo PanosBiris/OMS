@@ -16,7 +16,7 @@ export class OrderService {
   }
 
   get(id: any): Observable<Order> {
-    return this.http.get<Order>(`${baseUrl}/${id}`);
+    return this.http.get<Order>(`${baseUrl}/GetOrderById/?orderId=${id}`);
   }
 
   create(data: any): Observable<any> {

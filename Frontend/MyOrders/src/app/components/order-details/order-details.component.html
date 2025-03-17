@@ -1,9 +1,16 @@
-<div *ngIf="viewMode; else editable">
-  <div *ngIf="currentOrder.Id">
+<div>
+  <div *ngIf="currentOrder.id">
     <h4>Order</h4>
     <div>
-      <label><strong>Title:</strong></label> {{ currentOrder.code }}
+      <label><strong>Code:</strong></label> {{ currentOrder.code }}
     </div>
+    <div>
+      <label><strong>Created On:</strong></label>
+      {{ currentOrder.orderTime }}
+    </div>
+    <div>
+      <label><strong>Notes:</strong></label>
+      {{ currentOrder.notes }}
     <div>
       <label><strong>Type:</strong></label>
       {{ currentOrder.type }}
@@ -12,11 +19,6 @@
       <label><strong>Status:</strong></label>
       {{ currentOrder.status }}
     </div>
-
-    <a class="badge badge-warning"
-      routerLink="/orders/{{ currentOrder.Id }}">
-      Edit
-    </a>
   </div>
 
   <div *ngIf="!currentOrder">
@@ -25,49 +27,3 @@
   </div>
 </div>
 
-<ng-template #editable>
-  <div *ngIf="currentOrder.Id" class="edit-form">
-    <h4>Order</h4>
-    <form>
-      <div class="form-group">
-        <label for="code">Code</label>
-        <input
-          type="text"
-          class="form-control"
-          id="code"
-          [(ngModel)]="currentOrder.code"
-          name="title"
-        />
-      </div>
-      <div class="form-group">
-        <label for="description">Notes</label>
-        <input
-          type="text"
-          class="form-control"
-          id="notes"
-          [(ngModel)]="currentOrder.notes"
-          name="notes"
-        />
-      </div>
-
-      <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentOrder.status }}
-      </div>
-    </form>
-
-   <button
-      type="submit"
-      class="badge badge-success mb-2"
-      (click)="updateOrder()"
-    >
-      Update
-    </button>
-    <p>{{ message }}</p>
-  </div>
-
-  <div *ngIf="!currentOrder.Id">
-    <br />
-    <p>Cannot access this Order...</p>
-  </div>
-</ng-template>

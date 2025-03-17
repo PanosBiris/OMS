@@ -8,7 +8,7 @@ namespace PB.OMS.OrderingService.Domain.Entities.Enums
 {
     public enum OrderType
     {
-        Pickup,
-        Delivey
+        Pickup = 1,
+        Delivey = 2
     }
 }

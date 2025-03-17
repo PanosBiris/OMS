@@ -1,7 +1,7 @@
 import { OrderItem } from './orderItem.model';
 
 export class Order {
-  Id:any;
+  id:any;
   code?: string;
   orderTime?: Date;
   type: number = 1;

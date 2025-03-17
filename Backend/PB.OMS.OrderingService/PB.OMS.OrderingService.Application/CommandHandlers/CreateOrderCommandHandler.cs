@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using PB.OMS.OrderingService.Application.Commands;
 using PB.OMS.OrderingService.Application.Repository;
+using PB.OMS.OrderingService.Domain.Entities.Enums;
 using PB.OMS.OrderingService.Domain.Entities.OrderAggregate;
 
 namespace Application.Person.CommandHandlers;
@@ -22,7 +23,7 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Ord
             CustomerId = request.CustomerId,
             OrderTime = request.OrderTime,
             Type = request.Type,
-            Status = request.Status,
+            Status = OrderStatus.Pending, //TODO: Status not required when creating as it is always pending
             Notes = request.Notes,
             OrderItems = request.Items
         };

@@ -12,7 +12,7 @@ export class OrderDetailsComponent implements OnInit {
   @Input() viewMode = false;
 
   @Input() currentOrder: Order = {
-    Id: null,
+    id: null,
     code: '',
     type: 1,  // 1 = Order, 2 = Quote
     status: 1,  // 1 = New, 2 = In Progress, 3 = Completed  
@@ -47,7 +47,7 @@ export class OrderDetailsComponent implements OnInit {
     this.message = '';
 
     this.orderService
-      .update(this.currentOrder.Id, this.currentOrder)
+      .update(this.currentOrder.id, this.currentOrder)
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -57,15 +57,5 @@ export class OrderDetailsComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
-  }
-
-  deleteOrder(): void {
-    this.orderService.delete(this.currentOrder.Id).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.router.navigate(['/orders']);
-      },
-      error: (e) => console.error(e)
-    });
   }
 }

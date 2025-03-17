@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class AddOrderComponent {
   order: Order = {
-    Id: null,
+    id: null,
     code: '',
     type: 1,
     status: 1,
@@ -36,7 +36,7 @@ export class AddOrderComponent {
   saveOrder(): void {
     const data = {
       code: this.order.code,
-      type: 1,
+      type: +this.order.type,
       status: 1,
       notes: this.order.notes,
       items: this.order.items
@@ -54,7 +54,7 @@ export class AddOrderComponent {
   newOrder(): void {
     this.submitted = false;
     this.order = {
-      Id: null,
+      id: null,
       code: '',
       type: 1,
       status: 1,

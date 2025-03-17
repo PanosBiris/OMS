@@ -50,5 +50,13 @@ namespace PB.OMS.OrderingService.Api.Controllers
 
             return orders;
         }
+
+        [HttpGet]
+        public async Task<Order> GetOrderByIdAsync(Guid orderId)
+        {
+            var order = await _mediator.Send(new GetOrderByIdQuery() { OrderId = orderId });
+
+            return order;
+        }
     }
 }

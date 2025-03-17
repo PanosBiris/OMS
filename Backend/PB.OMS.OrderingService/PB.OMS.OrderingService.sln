@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.OMS.OrderingService.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.OMS.OrderingService.Infrastructure", "PB.OMS.OrderingService.Infrastructure\PB.OMS.OrderingService.Infrastructure.csproj", "{0DAEB35B-ADB0-43B7-A804-75906AD29AE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.OMS.OrderingService.Test", "PB.OMS.OrderingService.Test\PB.OMS.OrderingService.Test.csproj", "{5B027149-9290-4455-AD2E-4D413F355C6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0DAEB35B-ADB0-43B7-A804-75906AD29AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAEB35B-ADB0-43B7-A804-75906AD29AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DAEB35B-ADB0-43B7-A804-75906AD29AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B027149-9290-4455-AD2E-4D413F355C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B027149-9290-4455-AD2E-4D413F355C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B027149-9290-4455-AD2E-4D413F355C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B027149-9290-4455-AD2E-4D413F355C6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

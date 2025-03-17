@@ -6,12 +6,15 @@
         class="list-group-item"
         *ngFor="let order of orders; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveOrder(order, i)"
       >
-        {{ order.code }}
-        {{ order.orderTime}}
-        {{ order.type }}
-        {{ order.notes }}
+        <strong>{{ order.code }}|</strong>
+        {{ order.orderTime | date: 'dd/MM/yyyy hh:mm:ss' }} |
+        {{ order.type }} |
+        {{ order.notes }}        
+        <a class="badge badge-warning"
+          routerLink="/orders/{{ order.id }}">
+        View
+        </a>
       </li>
     </ul>
 
