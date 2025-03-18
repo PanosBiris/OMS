@@ -1,6 +1,6 @@
-﻿using Application.Person.CommandHandlers;
-using Azure.Core;
+﻿using Azure.Core;
 using Microsoft.EntityFrameworkCore;
+using PB.OMS.OrderingService.Application.CommandHandlers;
 using PB.OMS.OrderingService.Application.Commands;
 using PB.OMS.OrderingService.Application.Repository;
 using PB.OMS.OrderingService.Domain.Entities.Enums;

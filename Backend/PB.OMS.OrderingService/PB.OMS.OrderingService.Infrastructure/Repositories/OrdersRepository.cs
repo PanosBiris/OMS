@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PB.OMS.OrderingService.Domain.Entities.OrderAggregate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PB.OMS.OrderingService.Application.Repository;
 
 namespace PB.OMS.OrderingService.Infrastructure.Repositories
@@ -38,6 +33,13 @@ namespace PB.OMS.OrderingService.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
             return newOrder;
+        }
+
+        public async Task<int> UpdateOrderStatus(Order order)
+        {
+            return await
+            _context.Orders.Where(o => o.Id == order.Id).ExecuteUpdateAsync
+                (x => x.SetProperty(p => p.Status, order.Status));
         }
     }
 }

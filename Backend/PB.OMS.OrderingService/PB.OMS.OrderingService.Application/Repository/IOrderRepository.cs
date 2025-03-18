@@ -17,5 +17,7 @@ namespace PB.OMS.OrderingService.Application.Repository
 
         Task<Order> AddOrder(Order toCreate);
 
+        Task<int> UpdateOrderStatus(Order order);
+
     }
 }
