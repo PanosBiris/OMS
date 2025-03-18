@@ -15,7 +15,7 @@ It contains endpoints:
 Prerequisites to run the web api locally: VS 2022 + .NET 9.0, SQL Express or SQL Developer (connection string contains windows auth / server name: localhost)
 For the database / data layer it uses EF Core code first approach. Database and migrations should be created on startup.
 
-The UI / SPA is located in frontend folder in the repo.
+The UI / SPA is located in frontend folder in the repo. It contains components for the above endpoints.
 Prerequisites: node.js.
 
 To run the angular app locally navigate to the root folder and run the following commands:
